@@ -1,10 +1,13 @@
 package com.sanjsii.thirdd.model;
 
 public class Car {
+	
 	private int id;
 	private String model;
 	private String brand;
 	private int year;
+	private String color;
+	private String type;
 	
 	public Car() {
 		super();
@@ -49,11 +52,24 @@ public class Car {
 	public void setYear(int year) {
 		this.year = year;
 	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 	
 	
 	
 
 }
-
-
-
