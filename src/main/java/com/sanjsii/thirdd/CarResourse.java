@@ -65,8 +65,6 @@ public class CarResourse {
 		
 	}
 	
-	
-	
 	//Fetching data from database.
 	public List<Car> getCarsFromDB(){
 		List<Car> carList = new ArrayList<Car>();
@@ -114,7 +112,7 @@ public class CarResourse {
 		try {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection conn = DriverManager.getConnection(connURL, "root", "mysql");
+			Connection conn = DriverManager.getConnection(connURL, "root", "sanjsi");
 			
 			String sql = "SELECT * FROM car WHERE id = ?";//Query to be execute
 			PreparedStatement preparedStatement = conn.prepareStatement(sql);
