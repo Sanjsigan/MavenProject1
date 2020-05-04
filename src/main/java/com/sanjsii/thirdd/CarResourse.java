@@ -4,16 +4,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.sanjsii.thirdd.dao.CarDao;
 import com.sanjsii.thirdd.model.Car;
 import com.google.gson.Gson;
 
@@ -140,7 +144,26 @@ public class CarResourse {
 		
 	}
 		
+	@POST
+	@Produces(MediaType.APPLICATION_JSON)
+	public void addCar(@FormParam("id") int id,
+			@FormParam("model") String model,
+							@FormParam("brand") String brand,
+							@FormParam("year") int year,
+							@FormParam("color") String color,
+							@FormParam("type") String type) throws ClassNotFoundException, SQLException {
+		
+		Car car= new Car();
+		car.setId(id);
+		car.setModel(model);
+		car.setBrand(brand);
+		car.setYear(year);
+		car.setColor(color);
+		car.setType(type);
+		
+		boolean result = CarDao.getInstance().add(car);
 	
+	}
 	
 		
 	//Database Simulation.
